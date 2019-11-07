@@ -11,4 +11,4 @@ let out = 'Hello, ';
 
     if (nStr.toUpperCase() === nStr) return "HELLO " + nStr +  '!'
 
-  return "Hello, " + nStr +  '.'}
+  return out + nStr +  '.'}
