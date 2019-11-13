@@ -8,12 +8,6 @@
 yarn install
 ```
 
-### Docker
-
-```bash
-docker build -t todo-api .
-```
-
 ## Run
 
 ### Yarn
@@ -30,21 +24,6 @@ Production:
 yarn start
 ```
 
-### Docker
-
-Run the container:
-
-```bash
-docker run -p 8080:8080 todo-api
-```
-
-And using docker compose:
-
-```bash
-docker-compose up --build
-```
-
-If you need to change any of the environment variables, please use the `.env` file.
 
 ## Linting
 
