@@ -1,13 +1,18 @@
 const express = require("express")();
 const mongoose = require("mongoose");
+const { MongoMemoryServer } = require("mongodb-memory-server");
+const mongoServer = new MongoMemoryServer();
 const bodyParser = require("body-parser").json();
 const cors = require("cors")();
 const pino = require("express-pino-logger")();
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
-
-const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/todos";
-mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoose.Promise = Promise;
+//const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/todos";
+//mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoServer.getConnectionString().then(mongoURI => {
+  mongoose.connect(mongoURI, { useNewUrlParser: true });
+});
 
 express
   .use(bodyParser)
